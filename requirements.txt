@@ -1,0 +1,55 @@
+# Core ML libraries
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+numpy>=1.24.0
+pandas>=2.0.0
+tqdm>=4.65.0
+
+# Configuration and logging
+pyyaml>=6.0
+omegaconf>=2.3.0
+tensorboard>=2.13.0
+wandb>=0.15.0
+
+# Computer Vision and Image Processing
+opencv-python>=4.8.0
+Pillow>=10.0.0
+kornia>=0.7.0
+matplotlib>=3.7.0
+plotly>=5.15.0
+
+# Vision-Language and NLP
+transformers>=4.30.0
+sentencepiece>=0.1.99
+accelerate>=0.20.0
+datasets>=2.12.0
+
+# VLN-specific libraries
+CLIP>=1.0
+blip>=1.0.0
+
+# Data handling
+webdataset>=0.2.0
+lmdb>=1.4.0
+
+# Development and testing
+black>=23.0.0
+ruff>=0.0.280
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Demo and visualization
+streamlit>=1.25.0
+gradio>=3.40.0
+
+# Optional: 3D and geometry (for advanced VLN)
+open3d>=0.17.0
+pytorch3d>=0.7.0
+
+# Optional: Detection and segmentation
+detectron2>=0.6.0
+
+# Optional: Serving
+fastapi>=0.100.0
+uvicorn>=0.23.0

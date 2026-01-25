@@ -1,0 +1,92 @@
+# Default configuration for Vision-and-Language Navigation
+defaults:
+  - _self_
+  - override /model: clip_vln
+  - override /data: r2r_dataset
+  - override /training: default_training
+
+# Project settings
+project:
+  name: "vln-navigation"
+  version: "0.1.0"
+  description: "Vision-and-Language Navigation using CLIP and advanced VLN models"
+
+# Device configuration
+device: auto  # auto, cuda, mps, cpu
+mixed_precision: true
+gradient_checkpointing: false
+
+# Random seeds for reproducibility
+seed: 42
+deterministic: true
+
+# Logging
+logging:
+  level: INFO
+  log_dir: "./logs"
+  use_wandb: false
+  wandb_project: "vln-navigation"
+  use_tensorboard: true
+
+# Paths
+paths:
+  data_dir: "./data"
+  output_dir: "./outputs"
+  checkpoint_dir: "./checkpoints"
+  assets_dir: "./assets"
+
+# Model configuration
+model:
+  name: "clip_vln"
+  backbone: "openai/clip-vit-base-patch32"
+  hidden_size: 512
+  num_layers: 6
+  num_heads: 8
+  dropout: 0.1
+  max_instruction_length: 128
+  max_trajectory_length: 50
+
+# Data configuration
+data:
+  name: "r2r_dataset"
+  batch_size: 16
+  num_workers: 4
+  pin_memory: true
+  train_split: "train"
+  val_split: "val_seen"
+  test_split: "test"
+  image_size: [224, 224]
+  augmentations:
+    horizontal_flip: 0.5
+    color_jitter: 0.1
+    rotation: 5.0
+
+# Training configuration
+training:
+  name: "default_training"
+  epochs: 100
+  learning_rate: 1e-4
+  weight_decay: 1e-5
+  warmup_steps: 1000
+  max_grad_norm: 1.0
+  gradient_accumulation_steps: 1
+  save_every: 10
+  eval_every: 5
+  early_stopping_patience: 20
+
+# Evaluation configuration
+evaluation:
+  metrics:
+    - "success_rate"
+    - "spl"
+    - "navigation_error"
+    - "oracle_success_rate"
+  save_predictions: true
+  visualize_attention: true
+
+# Demo configuration
+demo:
+  port: 8501
+  host: "0.0.0.0"
+  theme: "light"
+  show_code: false
