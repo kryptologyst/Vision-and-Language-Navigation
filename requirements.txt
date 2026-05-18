@@ -44,11 +44,11 @@ streamlit>=1.25.0
 gradio>=3.40.0
 
 # Optional: 3D and geometry (for advanced VLN)
-open3d>=0.17.0
-pytorch3d>=0.7.0
+# open3d>=0.17.0
+# pytorch3d>=0.7.0
 
 # Optional: Detection and segmentation
-detectron2>=0.6.0
+# detectron2>=0.6.0
 
 # Optional: Serving
 fastapi>=0.100.0
